@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disney+</title>
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+</head>
+<body>
+    <nav class="navbar navbar-light bg-light static-top">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'home' %}">Home</a>
+            <a class="btn btn-primary" href="">Netflix</a>
+            <a class="btn btn-primary" href="">Prime Video</a>
+            <a class="btn btn-primary" href="{% url 'hbomax' %}">HBO Max</a>
+            <a class="btn btn-primary" href="{% url 'disneyplus' %}">Disney+</a>
+            <a class="btn btn-primary" href="#signup">Sign Up</a>
+        </div>
+    </nav>
+
+    <h1>Disney+</h1>
+
+    {% for seriesDisney in listadisney %}
+
+    <img>{{ seriesDisney.photo }}</img>
+    <h5 style="color:black">IMDB {{ seriesDisney.qualification }}</h5>
+    <h3 style="color:black">{{ seriesDisney.title }}</h3>
+
+    {% endfor %}
+</body>
+</html>
