@@ -1,0 +1,42 @@
+{% extends "home.html" %}
+
+{% load static %}
+
+{% block contenido %}
+
+<div class="serie-container">
+
+    {% if detail %}
+
+    <div class="serie-detail-box">
+        <div class="serie-detail">
+            <h1 class="serie-detail-title">{{ detail.title }}</h1>
+            <img class="serie-detail-img" width="400px" height="300px" src="{{ detail.photo }}" alt="">
+            <div class="serie-detail-description">
+                <div class="serie-detail-date">{{ detail.date }}</div>
+                <div class="serie-detail-qualification">IMDB {{ detail.qualification }}</div>
+            </div>
+            <p class="serie-detail-author">Por {{ detail.author }}</p>
+            <div class="serie-detail-body"><p>{{ detail.body }}</p></div>
+        </div>
+    </div>
+
+    {% else %}
+    
+    <div class="noresults">
+        <h2>EL CONTENIDO NO ESTÁ DISPONIBLE</h2>
+    </div>
+
+    {% endif %}
+
+    <div class="serie-button">
+        <a href="{% url 'netflix' %}"><button>Volver</button></a>
+    </div>
+    
+</div>
+
+{% endblock %}
+
+
+
+

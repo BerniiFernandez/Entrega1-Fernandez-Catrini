@@ -1,0 +1,39 @@
+{% extends "home.html" %}
+
+{% block contenido %}
+
+{% load static %}
+
+<div class="serie-container">
+
+    <div class="serie-list">
+
+        <div class="serie-title-prime">
+            <h1>Prime Video</h1>
+        </div>
+
+        {% for series in seriesprime %}
+
+        <div class="serie-object-container">
+            <div class="serie-object">
+                <img class="serie-object-img" width="400px" height="300px" src="{{ series.photo }}" alt="">
+                <div class="serie-object-data">
+                    <h5>{{ series.title }}</h5>
+                    <p>IMDB {{ series.qualification }}</p>
+                </div>
+                <div class="serie-object-button">
+                    <a href="{% url 'detalleprime' series.id %}"><button>Leer más</button></a>
+                </div>
+            </div>
+        </div>
+
+        {% endfor %}
+
+    </div>
+    <div class="serie-button">
+        <a href="{% url 'listaprime' %}"><button>Registro</button></a>
+    </div>
+
+</div>
+
+{% endblock %}

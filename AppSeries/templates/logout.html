@@ -1,0 +1,19 @@
+{% extends "home.html" %}
+
+{% load static %}
+
+{% block contenido %}
+
+<div class="serie-container">
+
+    <div class="noresults">
+        <h2>TE DESLOGUEASTE CORRECTAMENTE</h2>
+    </div>
+
+    <div class="serie-button">
+        <a href="{% url 'loginapp' %}"><button>Iniciar sesion</button></a>
+    </div>
+
+</div>
+
+{% endblock %}

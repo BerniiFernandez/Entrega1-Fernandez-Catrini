@@ -1,0 +1,31 @@
+{% extends "home.html" %}
+
+{% load static %}
+
+{% block contenido %}
+
+<div class="serie-container">
+
+    {% if usuario %}
+
+    <div class="perfil-title">
+        <h1>Perfil de: {{ usuario.username }}</h1>
+    </div>
+
+    <div class="perfil-box">
+        <div class="perfil-detail">
+            <img class="perfil-detail-img" width="400px" height="300px" src="{{ usuario.photo }}" alt="">
+            <h5 class="perfil-detail-data">Nombre: {{ usuario.first_name }}</h5>
+            <h5 class="perfil-detail-data">Apellido: {{ usuario.last_name }}</h5>
+            <div class="perfil-detail-data">Email: {{ usuario.email }}</div>
+            <div class="serie-button-perfil">
+                <a href="{% url 'editarperfil' %}"><button>Editar</button></a>
+            </div>
+        </div>
+    </div>
+
+    {% endif %}
+    
+</div>
+
+{% endblock %}

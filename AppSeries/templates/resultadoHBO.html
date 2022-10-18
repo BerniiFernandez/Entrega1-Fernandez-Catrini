@@ -1,0 +1,48 @@
+{% extends "home.html" %}
+
+{% load static %}
+
+{% block contenido %}
+
+<div class="serie-container">
+
+    {% if hboseries %}
+
+    <div class="serie-list">
+
+        <div class="serie-title-search">
+            <h1>Resultado de búsqueda</h1>
+        </div>
+        
+        {% for serie in hboseries %}
+
+        <div class="serie-object-container">
+            <div class="serie-object">
+                <img class="serie-object-img" width="400px" height="300px" src="{{ serie.photo }}" alt="">
+                <div class="serie-object-data">
+                    <h5>{{ serie.title }}</h5>
+                    <p>IMDB {{ serie.qualification }}</p>
+                    <p class="serie-object-id">{{ serie.id }}</p>
+                </div>
+            </div>
+        </div>
+
+        {% endfor %}
+        
+    </div>
+
+    {% else %}
+
+    <div class="noresults">
+        <h2>NO SE ENCONTRARON SERIES DE HBO MAX</h2>
+    </div>
+    
+    {% endif %}
+
+    <div class="serie-button">
+        <a href="{% url 'hbomax' %}"><button>Volver</button></a>
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'chathome.html' %}
+
+{% load static %}
+
+{% block hide %}{% endblock %}
+
+{% block messagesbox %}
+    
+{% for message in mensajes %}
+
+{% if message.sender == request.user %}
+   
+<div class="" style="width: 75%; position: relative">
+    <div style="position: absolute; top: 0; left:3px; font-weight: bolder" class="">Tu</div>
+    {{ message }}
+</div>
+
+{% else %}
+
+<div class="" style="width: 75%; position: relative">
+    <div style="position: absolute; top: 0; left:3px; font-weight: bolder" class="">{{ message.sender }}</div>
+    {{ message }}
+</div>
+
+{% endif %}
+
+{% endfor %}
+
+{% endblock %}

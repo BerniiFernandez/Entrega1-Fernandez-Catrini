@@ -1,0 +1,26 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% block contenido %}
+
+<div class="form-chat-container">
+    <div class="form-chat-title">
+        <h1>REGISTRARSE</h1>
+    </div>
+    <div class="form-chat-content">
+        <form class="form-chat" action="{% url 'registerchat' %}" method="POST"> {% csrf_token %}
+            <table>
+                {{ formulario.as_table }}
+            </table>
+            <div class="form-chat-button">
+                <input type="submit" value="Enviar">
+            </div>
+        </form>
+    </div>
+
+    <h2>{{ mensaje }}</h2>
+
+</div>
+
+{% endblock %}
