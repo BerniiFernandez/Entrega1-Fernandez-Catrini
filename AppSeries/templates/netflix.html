@@ -5,14 +5,14 @@
 {% block contenido %}
 
 <div class="serie-container">
-
+    
     <div class="serie-list">
 
-        <div class="serie-title-hbo">
-            <h1>HBO Max</h1>
+        <div class="serie-title-netflix">
+            <h1>Netflix</h1>
         </div>
 
-        {% for series in serieshbo %}
+        {% for series in seriesnetflix %}
 
         <div class="serie-object-container">
             <div class="serie-object">
@@ -22,7 +22,7 @@
                     <p>IMDB {{ series.qualification }}</p>
                 </div>
                 <div class="serie-object-button">
-                    <a href="{% url 'detallehbo' series.id %}"><button>Leer más</button></a>
+                    <a href="{% url 'detallenetflix' series.id %}"><button>Leer más</button></a>
                 </div>
             </div>
         </div>
@@ -31,10 +31,9 @@
 
     </div>
     <div class="serie-button">
-        <a href="{% url 'listahbo' %}"><button>Registro</button></a>
+        <a href="{% url 'listanetflix' %}"><button>Registro</button></a>
     </div>
 
 </div>
 
 {% endblock %}
-

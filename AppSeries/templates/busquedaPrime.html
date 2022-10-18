@@ -1,0 +1,21 @@
+{% extends "home.html" %}
+
+{% load static %}
+
+{% block contenido %}
+
+<div class="form-container">
+    <div class="form-title-search">
+        <h1>Buscar serie:</h1>
+    </div>
+    <div class="form-content">
+        <form class="form" action="{% url 'buscarserieprime' %}" method="GET"> {% csrf_token %}
+            <input class="form-input" type="text" name="title" id="title" placeholder="Título">
+            <div class="form-button">
+                <input type="submit" value="Buscar">
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

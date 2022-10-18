@@ -1,0 +1,28 @@
+{% extends "home.html" %}
+
+{% load static %}
+
+{% block contenido %}
+
+<div class="form-container">
+    <div class="form-title">
+        <h1>Formulario HBO Max</h1>
+    </div>
+    <div class="form-content">
+        <form class="form" action="{% url 'hboform' %}" method="POST"> {% csrf_token %}
+            <table>
+                {{ formulario.as_table }}
+            </table>
+            <div class="form-button">
+                <input type="submit" value="Agregar">
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
+
+
+
+
+

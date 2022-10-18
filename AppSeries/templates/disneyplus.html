@@ -1,33 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    {% load static %}
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Disney+</title>
-    <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
-</head>
-<body>
-    <nav class="navbar navbar-light bg-light static-top">
-        <div class="container">
-            <a class="navbar-brand" href="{% url 'home' %}">Home</a>
-            <a class="btn btn-primary" href="">Netflix</a>
-            <a class="btn btn-primary" href="">Prime Video</a>
-            <a class="btn btn-primary" href="{% url 'hbomax' %}">HBO Max</a>
-            <a class="btn btn-primary" href="{% url 'disneyplus' %}">Disney+</a>
-            <a class="btn btn-primary" href="#signup">Sign Up</a>
+{% extends "home.html" %}
+
+{% load static %}
+
+{% block contenido %}
+
+<div class="serie-container">
+    
+    <div class="serie-list">
+
+        <div class="serie-title-disney">
+            <h1>Disney+</h1>
         </div>
-    </nav>
 
-    <h1>Disney+</h1>
+        {% for series in seriesdisney %}
 
-    {% for seriesDisney in listadisney %}
+        <div class="serie-object-container">
+            <div class="serie-object">
+                <img class="serie-object-img" width="400px" height="300px" src="{{ series.photo }}" alt="">
+                <div class="serie-object-data">
+                    <h5>{{ series.title }}</h5>
+                    <p>IMDB {{ series.qualification }}</p>
+                </div>
+                <div class="serie-object-button">
+                    <a href="{% url 'detalledisney' series.id %}"><button>Leer más</button></a>
+                </div>
+            </div>
+        </div>
 
-    <img>{{ seriesDisney.photo }}</img>
-    <h5 style="color:black">IMDB {{ seriesDisney.qualification }}</h5>
-    <h3 style="color:black">{{ seriesDisney.title }}</h3>
+        {% endfor %}
 
-    {% endfor %}
-</body>
-</html>
+    </div>
+    <div class="serie-button">
+        <a href="{% url 'listadisney' %}"><button>Registro</button></a>
+    </div>
+
+</div>
+
+{% endblock %}

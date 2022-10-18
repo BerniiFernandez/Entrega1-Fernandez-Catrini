@@ -1,0 +1,30 @@
+{% extends 'home.html' %}
+
+{% load static %}
+
+{% block contenido %}
+
+<div class="form-container">
+    <div class="form-title">
+        <h1>EDITAR PERFIL DE {{ usuario }}</h1>
+    </div>
+    <div class="form-content">
+        <form class="form" action="{% url 'editarperfil' %}" method="POST"> {% csrf_token %}
+            <table>
+                {{ formulario.as_table }}
+            </table>
+            <div class="form-button">
+                <input type="submit" value="Enviar">
+            </div>
+        </form>
+    </div>
+
+    <h2>{{ mensaje }}</h2>
+
+    <div class="serie-button">
+        <a href="{% url 'perfil' %}"><button>Volver</button></a>
+    </div>
+
+</div>
+
+{% endblock %}

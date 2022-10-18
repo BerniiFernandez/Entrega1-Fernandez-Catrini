@@ -1,0 +1,51 @@
+{% extends "home.html" %}
+
+{% load static %}
+
+{% block contenido %}
+
+<div class="serie-container">
+
+    {% if listadodisney %}
+
+    <div class="serie-list">
+
+        <div class="serie-title-disney-list">
+            <h1>Lista de Disney+</h1>
+        </div>
+
+        {% for series in listadodisney %}
+
+        <div class="serie-object-container">
+            <div class="serie-object">
+                <img class="serie-object-img" width="400px" height="300px" src="{{ series.photo }}" alt="">
+                <div class="serie-object-data">
+                    <h5>{{ series.title }}</h5>
+                    <p>IMDB {{ series.qualification }}</p>
+                </div>
+                <div class="lista-buttons">
+                    <a href="{% url 'editarseriedisney' series.id %}"><button class="edit-button">Editar</button></a>
+                    <a href="{% url 'eliminarseriedisney' series.id %}"><button class="delete-button">Eliminar</button></a>
+                </div>
+            </div>
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+    {% else %}
+    
+    <div class="noresults">
+        <h2>NO SE ENCONTRARON SERIES DE DISNEY+</h2>
+    </div>
+    
+    {% endif %}
+
+    <div class="serie-button">
+        <a href="{% url 'busquedadisney' %}"><button>Buscar</button></a>
+        <a href="{% url 'disneyform' %}"><button>Agregar</button></a>
+    </div>
+</div>
+
+{% endblock %}

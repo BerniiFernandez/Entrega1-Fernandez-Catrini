@@ -1,0 +1,48 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% block body %}
+
+<header>
+    <nav class="navbar-chat-container">
+        <div class="navbar-chat-imgcontent">
+            <img class="navbar-chat-img" src="/media/images/logo-chat.png" alt="logo-chat">
+        </div>
+        <div class="navbar-chat-items" style="display:inline-flex;">
+            <p>!Hola {{ user.username }}!</p>
+            <img height="50px" src="" alt="">
+            <a class="navbar-chat-item" href="{% url 'loginchat' %}">Logout</a>
+        </div>
+    </nav>
+</header>
+
+<div class="chathome-container" style="width:auto; height: 100vh;">
+    <div class="">
+        <div class="">
+            {% for user in userlist %}
+            <a href="{% url 'chathome' %}" class="">
+                <img src="" class="">
+                <div class=""><span class="" style="font-weight: bolder">{{ user.username }}</span></div>
+            </a>
+            {% endfor %}
+        </div>
+        <div class="">
+            <div class="" style="height: 68vh; padding: 5px; overflow-y: scroll">
+            {% block messagesbox %}
+    
+            {% endblock %}
+            </div>
+            <form class="" method="POST"> {% csrf_token %}
+                <div class="">
+                    <div class="" style="display:inline-flex;">
+                        <input id="message" name="message" type="text" placeholder="Escribir mensaje">
+                        <button class="">Enviar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

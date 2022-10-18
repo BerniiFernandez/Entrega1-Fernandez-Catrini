@@ -1,0 +1,23 @@
+{% extends "home.html" %}
+
+{% load static %}
+
+{% block contenido %}
+
+<div class="form-container">
+    <div class="form-title">
+        <h1>Editando serie: {{ netflix }}</h1>
+    </div>
+    <div class="form-content">
+        <form class="form" action="{% url 'editarserienetflix' netflix.id %}" method="POST"> {% csrf_token %}
+            <table>
+                {{ formulario.as_table }}
+            </table>
+            <div class="form-button">
+                <input type="submit" value="Guardar">
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
